@@ -1,17 +1,17 @@
 @extends('layouts.index')
 
-@section('title', 'Welcome, Admin')
+@section('title', 'Welcome, Cashier')
     
 @section('contents')
 <div class="row">
     <div class="col-xl-3 mb-4">
         <div class="card border-left-primary shadow ">
-            <a href="/cashier-list">
+            <a href="/add-purchase">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Cashier</div>
+                                Add Purfchase</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">-</div>
                         </div>
                         <div class="col-auto">
@@ -24,12 +24,12 @@
     </div>
     <div class="col-xl-3 mb-4">
         <div class="card border-left-primary shadow ">
-            <a href="/product-list">
+            <a href="">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                Product</div>
+                                Purchase</div>
                             <div class="h5 mb-0 font-weight-bold text-gray-800">-</div>
                         </div>
                         <div class="col-auto">

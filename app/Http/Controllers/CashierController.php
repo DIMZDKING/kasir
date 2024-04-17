@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cashier;
+use App\Models\Sale;
+use App\Models\Customer;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class CashierController extends Controller
@@ -12,7 +15,7 @@ class CashierController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.cashier.main');
     }
 
     /**
@@ -47,6 +50,49 @@ class CashierController extends Controller
         $cashier = Cashier::get();
 
         return view('dashboard.admin.cashier-list', ['cashier' => $cashier]);
+    }
+
+    public function add_purchase()
+    {
+        return view('dashboard.cashier.add-purchase');
+    }
+
+    public function store_purchase(Request $request)
+    {
+        $purchase = [
+            'tgl' => $request->tgl,
+            'total' => $request->total,
+        ];
+
+        purchase::create($purchase);
+
+        return redirect('/purchase-list');
+    }
+
+    public function show_purchase()
+    {
+        $purchase = Sale::get();
+
+        return view('dashboard.cashier.purchase-list', ['purchase' => $purchase]);
+    }
+
+    public function edit_purchase($id)
+    {
+        $purchase = Sale::find($id);
+
+        return view('dashboard.admin.edit-purchase', ['purchase' => $purchase]);
+    }
+
+    public function update_purchase(Request $request, $id)
+    {
+        $purchase = [
+            'tgl' => $request->tgl,
+            'total' => $request->total,
+        ];
+
+        Sale::find($id)->update($purchase);
+
+        return redirect('/purchase-list');
     }
 
     /**
